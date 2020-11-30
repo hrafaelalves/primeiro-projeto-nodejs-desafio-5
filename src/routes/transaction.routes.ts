@@ -11,11 +11,11 @@ transactionRouter.get('/', (request, response) => {
   try {
 
     const listTransactions = transactionsRepository.all();
-    const getBalance = transactionsRepository.getBalance();
+    const balance = transactionsRepository.getBalance();
 
     const extract = {
       "transactions": listTransactions,
-      "balance": getBalance
+      "balance": balance
     }
 
     return response.json(extract);
