@@ -15,6 +15,11 @@ class CreateTransactionService {
   }
 
   public execute({title, value, type}: TransactionDTO): Transaction {
+
+    if(!["income", "outcome"].includes(type)){
+      throw Error('O tipo da transação é inválida');
+    }
+
     const { total } = this.transactionsRepository.getBalance();
 
     if(type === "outcome" && value > total){

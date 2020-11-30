@@ -26,7 +26,6 @@ class TransactionsRepository {
   public getBalance(){
 
     //Rafatorado de acordo com a resolução do desafio
-
     const { income, outcome } = this.transactions.reduce((accumulator: Balance, transaction: Transaction) => {
       switch(transaction.type){
         case 'income':
